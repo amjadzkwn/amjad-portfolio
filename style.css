@@ -1,0 +1,589 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root{
+  --blue: #4f8cff;
+  --light-blue: #eaf2ff;
+  --text-dark: #1f2933;
+  --text-light: #5f6c7b;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: white;
+  color: var(--text-dark);
+}
+
+/* ================= HEADER ================= */
+header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.5rem 8%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  z-index: 100;
+}
+
+.logo{
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+nav a{
+  margin-left: 3rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+nav a:hover,
+nav a.active{
+  color: var(--blue);
+}
+
+/* ================= SECTIONS ================= */
+section{
+  padding: 10rem 8% 6rem;
+  min-height: 100vh;
+}
+
+.section-title{
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--blue);
+}
+
+.section.light{
+  background-color: var(--light-blue);
+}
+
+/* ================= HOME ================= */
+.home{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+.home-content h1{
+  font-size: 4.5rem;
+}
+
+.home-content h3{
+  font-size: 2.5rem;
+  color: var(--blue);
+  margin: 1rem 0;
+}
+
+.home-content p{
+  font-size: 1.6rem;
+  color: var(--text-light);
+  max-width: 500px;
+}
+
+.home-img{
+  margin-top: -4rem;
+}
+
+.home-img img{
+  width: 22vw;
+  height: 22vw;
+  max-width: 300px;
+  max-height: 300px;
+  min-width: 200px;
+  min-height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(79,140,255,0.3);
+}
+
+/* ================= BUTTON ================= */
+.btn{
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: 1rem 2.5rem;
+  background: var(--blue);
+  color: white;
+  border-radius: 3rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+.btn:hover{
+  background: #3a74e6;
+}
+
+/* ================= SKILLS ================= */
+.skills-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 2rem;
+}
+
+.skill-box{
+  background: white;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  font-size: 1.6rem;
+}
+
+/* ================= CARDS ================= */
+.card{
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.card h3{
+  font-size: 2.2rem;
+  color: var(--blue);
+}
+
+/* ================= CONTACT ================= */
+.contact-box{
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.contact-box p{
+  margin: 1.2rem 0;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  font-size: 1.4rem;
+  color: var(--text-light);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px){
+  .home{
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  nav{
+    display: none;
+  }
+}
+
+.contact-box a{
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-box a:hover{
+  text-decoration: underline;
+}
+
+/* ===== EDUCATION TIMELINE ===== */
+.timeline{
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.timeline-item{
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.timeline-item img{
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.timeline-content{
+  background: white;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  flex: 1;
+}
+
+.timeline-content span{
+  font-size: 1.4rem;
+  color: var(--text-light);
+}
+
+/* ===== SKILLS ICON ===== */
+.skill-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skill-box img{
+  width: 40px;
+  height: 40px;
+}
+
+/* ===== CONTACT LINK ===== */
+.contact-box a{
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.contact-box a:hover{
+  text-decoration: underline;
+}
+
+/* ===== CORE STRENGTHS ===== */
+.section.light .skill-box{
+  font-weight: 500;
+}
+
+/* ===== PROJECT TECH STACK ===== */
+.card p strong{
+  color: var(--blue);
+}
+
+/* ===== CONTACT CTA ===== */
+.contact-box em{
+  color: var(--text-light);
+  font-size: 1.4rem;
+}
+
+/* ===== SKILLS ICON (LOGO STYLE) ===== */
+.skill-box i{
+  font-size: 3.2rem;
+  color: var(--blue);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root{
+  --blue: #4f8cff;
+  --light-blue: #eaf2ff;
+  --text-dark: #1f2933;
+  --text-light: #5f6c7b;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: white;
+  color: var(--text-dark);
+}
+
+/* ================= HEADER ================= */
+header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.5rem 8%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  z-index: 100;
+}
+
+.logo{
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+nav a{
+  margin-left: 3rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 1.6rem;
+  font-weight: 500;
+  position: relative;
+}
+
+nav a::after{
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: var(--blue);
+  left: 0;
+  bottom: -6px;
+  transition: 0.3s;
+}
+
+nav a:hover::after{
+  width: 100%;
+}
+
+nav a.active{
+  color: var(--blue);
+}
+
+/* ================= SECTIONS ================= */
+section{
+  padding: 10rem 8% 6rem;
+  min-height: 100vh;
+  animation: fadeUp 1s ease forwards;
+}
+
+.section-title{
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--blue);
+}
+
+.section.light{
+  background-color: var(--light-blue);
+}
+
+/* ================= HOME ================= */
+.home{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+.home-content h1{
+  font-size: 4.5rem;
+}
+
+.home-content h3{
+  font-size: 2.5rem;
+  color: var(--blue);
+  margin: 1rem 0;
+}
+
+.home-content p{
+  font-size: 1.6rem;
+  color: var(--text-light);
+  max-width: 500px;
+}
+
+.home-img img{
+  width: 22vw;
+  height: 22vw;
+  max-width: 300px;
+  max-height: 300px;
+  min-width: 200px;
+  min-height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(79,140,255,0.3);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ================= BUTTON ================= */
+.btn{
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: 1rem 2.5rem;
+  background: var(--blue);
+  color: white;
+  border-radius: 3rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+.btn:hover{
+  background: #3a74e6;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(79,140,255,0.4);
+}
+
+/* ================= SKILLS ================= */
+.skills-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 2rem;
+}
+
+.skill-box{
+  background: white;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  font-size: 1.6rem;
+  transition: 0.3s;
+}
+
+.skill-box:hover{
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(79,140,255,0.25);
+}
+
+.skill-box i{
+  font-size: 3.2rem;
+  color: var(--blue);
+}
+
+/* ================= CARDS ================= */
+.card{
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.card h3{
+  font-size: 2.2rem;
+  color: var(--blue);
+}
+
+/* ================= EDUCATION ================= */
+.timeline{
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.timeline-item{
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  animation: slideLeft 1s ease forwards;
+}
+
+.timeline-content{
+  background: white;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  flex: 1;
+}
+
+.timeline-content span{
+  font-size: 1.4rem;
+  color: var(--text-light);
+}
+
+/* ================= CONTACT ================= */
+.contact-box{
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.contact-box p{
+  margin: 1.2rem 0;
+}
+
+.contact-box i{
+  color: var(--blue);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  font-size: 1.4rem;
+  color: var(--text-light);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px){
+  .home{
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  nav{
+    display: none;
+  }
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp{
+  from{
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft{
+  from{
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float{
+  0%{ transform: translateY(0); }
+  50%{ transform: translateY(-12px); }
+  100%{ transform: translateY(0); }
+}
+
+/* ===== EDUCATION ANIMATION ===== */
+.timeline-item{
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: eduSlide 0.8s ease forwards;
+}
+
+.timeline-item:nth-child(1){ animation-delay: 0.2s; }
+.timeline-item:nth-child(2){ animation-delay: 0.4s; }
+.timeline-item:nth-child(3){ animation-delay: 0.6s; }
+.timeline-item:nth-child(4){ animation-delay: 0.8s; }
+
+@keyframes eduSlide{
+  from{
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
