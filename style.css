@@ -41,25 +41,6 @@ header{
   text-decoration: none;
 }
 
-nav a{
-  margin-left: 3rem;
-  text-decoration: none;
-  color: var(--text-dark);
-  font-size: 1.6rem;
-  font-weight: 500;
-}
-
-nav a:hover,
-nav a.active{
-  color: var(--blue);
-}
-
-/* ================= SECTIONS ================= */
-section{
-  padding: 10rem 8% 6rem;
-  min-height: 100vh;
-}
-
 .section-title{
   font-size: 3.2rem;
   text-align: center;
@@ -79,16 +60,6 @@ section{
   gap: 5rem;
 }
 
-.home-content h1{
-  font-size: 4.5rem;
-}
-
-.home-content h3{
-  font-size: 2.5rem;
-  color: var(--blue);
-  margin: 1rem 0;
-}
-
 .home-content p{
   font-size: 1.6rem;
   color: var(--text-light);
@@ -96,19 +67,15 @@ section{
 }
 
 .home-img{
-  margin-top: -4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
-.home-img img{
-  width: 22vw;
-  height: 22vw;
-  max-width: 300px;
-  max-height: 300px;
-  min-width: 200px;
-  min-height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 10px 30px rgba(79,140,255,0.3);
+html{
+    font-size: 60%;
+    scroll-behaviour: smooth;
 }
 
 /* ================= BUTTON ================= */
@@ -124,17 +91,7 @@ section{
   transition: 0.3s;
 }
 
-.btn:hover{
-  background: #3a74e6;
-}
-
 /* ================= SKILLS ================= */
-.skills-container{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 2rem;
-}
-
 .skill-box{
   background: white;
   padding: 2rem;
@@ -145,15 +102,6 @@ section{
 }
 
 /* ================= CARDS ================= */
-.card{
-  max-width: 700px;
-  margin: auto;
-  background: white;
-  padding: 3rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
-
 .card h3{
   font-size: 2.2rem;
   color: var(--blue);
@@ -185,6 +133,10 @@ footer{
     text-align: center;
   }
 
+  .home-img{
+    margin-top: 2rem;
+  }
+
   nav{
     display: none;
   }
@@ -202,36 +154,32 @@ footer{
 
 /* ===== EDUCATION TIMELINE ===== */
 .timeline{
+  position: relative;
   max-width: 900px;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
+  padding-left: 2rem;
 }
 
-.timeline-item{
-  display: flex;
-  gap: 2rem;
-  align-items: center;
+.timeline::before{
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--blue);
 }
 
-.timeline-item img{
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-}
-
-.timeline-content{
+.timeline-item::before{
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
   background: white;
-  padding: 2rem;
-  border-radius: 1.2rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  flex: 1;
-}
-
-.timeline-content span{
-  font-size: 1.4rem;
-  color: var(--text-light);
+  border: 4px solid var(--blue);
+  border-radius: 50%;
 }
 
 /* ===== SKILLS ICON ===== */
@@ -277,15 +225,6 @@ footer{
 .skill-box i{
   font-size: 3.2rem;
   color: var(--blue);
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-:root{
-  --blue: #4f8cff;
-  --light-blue: #eaf2ff;
-  --text-dark: #1f2933;
-  --text-light: #5f6c7b;
 }
 
 *{
@@ -377,11 +316,11 @@ section{
 }
 
 .home-content h1{
-  font-size: 4.5rem;
+  font-size: 3.6rem;
 }
 
 .home-content h3{
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--blue);
   margin: 1rem 0;
 }
@@ -474,18 +413,11 @@ section{
 
 /* ================= EDUCATION ================= */
 .timeline{
-  max-width: 900px;
-  margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
-}
-
-.timeline-item{
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  animation: slideLeft 1s ease forwards;
+  gap: 1.8rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .timeline-content{
@@ -536,6 +468,45 @@ footer{
   }
 }
 
+/* Home - Social Links */
+.home-sci { margin-top: 1.5rem; }
+.home-sci a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--primary);
+    margin-right: 15px;
+    transition: 0.5s ease;
+}
+.home-sci a:hover { background: var(--primary); color: white; box-shadow: 0 0 20px var(--primary); }
+
+/* Co-Curricular - Continuous Loop Style */
+.slider-container {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: visible; /* Biarkan kad tepi nampak */
+    padding: 3rem 0;
+}
+.cocurricular-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 350px;
+}
+
+/* Logik Kedudukan 3-in-1 */
+.co-card.active { opacity: 1; pointer-events: auto; transform: scale(1.1); z-index: 5; filter: blur(0); border: 1px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+.co-card.prev { opacity: 0.6; pointer-events: auto; transform: translateX(-110%) scale(0.85); z-index: 3; }
+.co-card.next { opacity: 0.6; pointer-events: auto; transform: translateX(110%) scale(0.85); z-index: 3; }
+
 /* ================= ANIMATIONS ================= */
 @keyframes fadeUp{
   from{
@@ -585,5 +556,988 @@ footer{
   to{
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+.card, .skill-box {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card:hover, .skill-box:hover {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+}
+
+body{
+  opacity: 0;
+  animation: pageLoad 1.2s ease forwards;
+}
+
+@keyframes pageLoad{
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tambah ini dalam style.css anda */
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05); /* Tambah background sikit supaya nampak card */
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.timeline-item img {
+    width: 80px;  /* Paksa lebar tetap */
+    height: 80px; /* Paksa tinggi tetap */
+    object-fit: contain; /* Supaya logo tak penyek/stretch */
+    margin-right: 20px;
+    background: white; /* Bagus jika logo ada background transparent */
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Container untuk grid projek */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 20px;
+}
+
+/* Gaya kad projek */
+.project-card {
+    background: rgba(255, 255, 255, 0.1); /* Sesuai dengan tema Glassmorphism */
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Bekas gambar dengan nisbah 16:9 */
+.project-img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Memastikan nisbah 16:9 */
+    overflow: hidden;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Gambar akan dipotong secara proporsional */
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    margin-bottom: 10px;
+    color: #4f8cff;
+}
+
+.tech-stack {
+    font-size: 0.9rem;
+    margin: 10px 0 20px 0;
+    color: black;
+}
+
+/* Style untuk Experience Timeline Baru */
+.exp-container {
+    border-left: 2px solid #4f8cff;
+    margin-left: 20px;
+    padding-left: 30px;
+    position: relative;
+}
+.exp-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+.exp-dot {
+    width: 15px;
+    height: 15px;
+    background: #4f8cff;
+    border-radius: 50%;
+    position: absolute;
+    left: -38.5px;
+    top: 5px;
+}
+.exp-date {
+    font-weight: bold;
+    color: #4f8cff;
+    margin-bottom: 5px;
+}
+.company {
+    font-style: italic;
+    color: #555;
+}
+
+/* Style untuk Skills Grid */
+/* Skills - Modern 2x2 Grid Layout */
+.skills-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2rem; 
+    max-width: 900px; /* Mengehadkan lebar supaya tidak terlalu kembang */
+    margin: 0 auto; 
+}
+
+.skill-category { 
+    background: linear-gradient(135deg, rgba(79, 140, 255, 0.1), rgba(255,255,255,0.05));
+    padding: 1.5rem; 
+    border-radius: 15px; 
+    border-left: 5px solid var(--primary);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--glass-border);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0; /* Untuk animasi muncul */
+    transform: translateY(30px);
+}
+
+/* Animasi apabila section 'show' (Triggered by IntersectionObserver) */
+section.show .skill-category {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay unik untuk setiap kad */
+section.show .skill-category:nth-child(1) { transition-delay: 0.1s; }
+section.show .skill-category:nth-child(2) { transition-delay: 0.2s; }
+section.show .skill-category:nth-child(3) { transition-delay: 0.3s; }
+section.show .skill-category:nth-child(4) { transition-delay: 0.4s; }
+
+.skill-category:hover { 
+    transform: scale(1.05); 
+    background: rgba(79, 140, 255, 0.15);
+    box-shadow: 0 10px 25px rgba(79, 140, 255, 0.2);
+}
+
+.skill-tags span {
+    display: inline-block;
+    background: rgba(79, 140, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin: 5px 3px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    cursor: default;
+}
+
+.skill-tags span:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Responsive: 1 lajur pada skrin telefon sangat kecil */
+@media (max-width: 500px) {
+    .skills-grid { grid-template-columns: 1fr; }
+}
+
+/* List style untuk Co-curricular */
+.list-item {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* --- Co-Curricular 3-in-1 Carousel Style --- */
+.slider-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.cocurricular-wrapper {
+  display: flex;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
+  padding: 0 10%;
+}
+
+.co-card.active {
+  opacity: 1;
+  transform: scale(1.1); /* Kad tengah besar */
+  filter: blur(0);
+  z-index: 2;
+  border: 1px solid var(--primary);
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.slider-btn:hover { background: #fff; color: var(--primary); }
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* --- Penambahbaikan Home (Alignment & Button) --- */
+.home-content { 
+  text-align: left; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; /* Pastikan semua ke kiri */
+}
+
+/* Animasi apabila scroll sampai ke Professional Experience */
+.exp-card-wrapper.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.exp-img-container { 
+  flex: 0 0 160px; 
+  padding: 1.5rem; 
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+.exp-img-container img { 
+  width: 120px; 
+  height: 120px; 
+  object-fit: contain; /* Mengekalkan ratio logo */
+  border-radius: 15px;
+}
+
+/* --- Education (Box & Animation) --- */
+.timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border-left: 5px solid var(--primary);
+  transition: all 0.5s ease;
+}
+
+.timeline-item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-item img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+}
+
+.timeline-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+/* --- Utility Classes untuk Animation --- */
+/* --- Fix: Visibility for Experience & Skills --- */
+.hidden { 
+    opacity: 0; 
+    transform: translateY(30px); 
+    transition: all 0.8s ease-out; 
+}
+
+.show { 
+    opacity: 1 !important; 
+    transform: translateY(0) !important; 
+}
+
+/* Professional Experience - Vertical Alignment Fix */
+/* Experience Card Style */
+/* ========== PROFESSIONAL EXPERIENCE - ENHANCED ========== */
+.exp-card-wrapper {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(79, 140, 255, 0.3);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  transition: all 0.4s ease;
+  width: 100%;
+  position: relative;
+}
+
+/* Corak hiasan background */
+.exp-card-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(79, 140, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.exp-card-wrapper:hover::before {
+  left: 100%;
+}
+
+.exp-card-wrapper:hover {
+  transform: translateY(-6px);
+  border-color: rgba(79, 140, 255, 0.7);
+  box-shadow: 0 20px 35px rgba(79, 140, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Container Logo */
+.exp-img-container {
+  width: 200px;
+  min-width: 200px;
+  padding: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(79, 140, 255, 0.08), rgba(79, 140, 255, 0.02));
+  position: relative;
+}
+
+/* Animation untuk logo */
+.exp-img-container img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.exp-card-wrapper:hover .exp-img-container img {
+  transform: scale(1.05) rotate(2deg);
+  filter: drop-shadow(0 8px 16px rgba(79, 140, 255, 0.3));
+}
+
+/* Content Text */
+.exp-text {
+  padding: 1.8rem 2rem 1.8rem 1.5rem;
+  flex: 1;
+}
+
+/* Date Badge */
+.exp-date {
+  display: inline-block;
+  background: linear-gradient(135deg, #4f8cff, #2a5fd8);
+  color: white;
+  padding: 0.35rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Position Title */
+.exp-text h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4f8cff;
+  margin-bottom: 0.3rem;
+}
+
+/* Company Name */
+.exp-text .company {
+  font-size: 0.9rem;
+  color: #2d2d2d;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.exp-text .company::before {
+  content: '\f0b1';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 400;
+  color: #4f8cff;
+}
+
+/* List styling */
+.exp-text ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.8rem;
+}
+
+.exp-text ul li {
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  padding-left: 1.3rem;
+  position: relative;
+  line-height: 1.45;
+}
+
+.exp-text ul li::before {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: #4f8cff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.75rem;
+}
+
+/* Co-Curricular Slider - 3 Card Layout Fix */
+.slider-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.cocurricular-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.co-card {
+    position: absolute;
+    width: 280px;
+    background: var(--glass);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Logik Kedudukan Slider */
+.co-card.active { 
+    opacity: 1; 
+    transform: scale(1.1); 
+    z-index: 10; 
+    pointer-events: auto;
+    border: 1px solid var(--primary);
+}
+
+.co-card.prev { 
+    opacity: 0.5; 
+    transform: translateX(-120%) scale(0.9); 
+    z-index: 5; 
+    pointer-events: auto;
+}
+
+.co-card.next { 
+    opacity: 0.5; 
+    transform: translateX(120%) scale(0.9); 
+    z-index: 5; 
+    pointer-events: auto;
+}
+
+/* Home Alignment Fix */
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Button & Icons ke kiri */
+    text-align: left;
+}
+
+/* Animation for experience card on scroll */
+.exp-card-wrapper {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.exp-card-wrapper.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger effect untuk multiple experience cards (kalau ada lebih dari satu) */
+.exp-card-wrapper:nth-child(1) { transition-delay: 0.1s; }
+.exp-card-wrapper:nth-child(2) { transition-delay: 0.3s; }
+.exp-card-wrapper:nth-child(3) { transition-delay: 0.5s; }
+
+/* Tablet / Half Screen */
+@media (max-width: 900px) {
+  .exp-img-container {
+    width: 170px;
+    min-width: 170px;
+    padding: 1.2rem;
+  }
+  
+  .exp-img-container img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .exp-text {
+    padding: 1.5rem;
+  }
+  
+  .exp-text h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Experience Card - Mobile Layout */
+  .exp-card-wrapper { 
+    flex-direction: column; 
+  }
+  
+  .exp-img-container {
+    width: 100%;
+    min-width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .exp-img-container img {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .exp-text {
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .exp-text h3 {
+    text-align: center;
+  }
+
+  .exp-text ul {
+    text-align: left;
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+  
+  .exp-text ul li {
+    text-align: left;
+  }
+  
+  .exp-text .company {
+    justify-content: center;
+  }
+  
+  .company::before {
+    display: inline-block;
+  }
+  
+  .exp-text ul {
+    text-align: left;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .exp-text ul li {
+    text-align: left;
+  }
+
+  .exp-date {
+    display: inline-block;
+  }
+
+  /* Project Cards */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Skills Grid */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* Home Section */
+  .home {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  
+  .home-content {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .home-sci {
+    margin-bottom: 1rem;
+  }
+  
+  nav {
+    display: none;
+  }
+}
+
+/* References Section - 3 Cards Row */
+.references-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+@media (max-width: 900px) {
+  .references-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .references-grid { grid-template-columns: 1fr; }
+}
+.ref-card {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  padding-bottom: 1.5rem;
+}
+.ref-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(79, 140, 255, 0.2);
+  border-color: var(--primary);
+}
+.ref-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #1a1f2e;
+}
+.ref-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.4s;
+}
+.ref-card:hover .ref-img img {
+  transform: scale(1.05);
+}
+.ref-info {
+  padding: 1.2rem;
+}
+.ref-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+  color: var(--primary);
+}
+.ref-info .role {
+  font-weight: 600;
+  font-size: 085rem;
+  color: #ffd966;
+  margin-bottom: 0.3rem;
+}
+.ref-info .position {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+.ref-info .ref-type {
+  display: inline-block;
+  background: rgba(79, 140, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  margin-top: 0.5rem;
+}
+
+/* Contact Section - Background tetap biru cair, contrast diperbaiki */
+#contact {
+  background: linear-gradient(135deg, rgba(79, 140, 255, 0.12), rgba(79, 140, 255, 0.04));
+  backdrop-filter: blur(2px);
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+/* Decorative background elements */
+#contact::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(79, 140, 255, 0.25), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+#contact::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(79, 140, 255, 0.2), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Contact Cards Grid */
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(79, 140, 255, 0.4);
+  border-radius: 24px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  border-color: #4f8cff;
+  box-shadow: 0 20px 40px rgba(79, 140, 255, 0.25);
+  background: linear-gradient(135deg, rgba(79, 140, 255, 0.15), rgba(79, 140, 255, 0.05));
+}
+
+.contact-icon-wrapper {
+  margin-bottom: 1.2rem;
+}
+
+.contact-icon-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #4f8cff, #7b2cbf);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card:hover .contact-icon-circle {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 30px rgba(79, 140, 255, 0.6);
+  background: linear-gradient(135deg, #7b2cbf, #4f8cff);
+}
+
+.contact-icon-circle i {
+  font-size: 2.2rem;
+  color: #ffffff;
+}
+
+.contact-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(135deg, #4f8cff, #a855f7);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.contact-card p {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: #a855f7;
+  font-weight: 500;
+}
+
+.contact-label {
+  font-size: 0.8rem;
+  color: #a855f7;
+  background: rgba(168, 85, 247, 0.15);
+  padding: 5px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.contact-social-btn {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: #a855f7;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.contact-social-btn:hover {
+  color: #4f8cff;
+  text-decoration: underline;
+}
+
+/* Contact Form Wrapper */
+.contact-form-wrapper {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(79, 140, 255, 0.3);
+  border-radius: 28px;
+  padding: 2.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  transition: 0.3s;
+}
+
+.contact-form-wrapper h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+  background: linear-gradient(135deg, #4f8cff, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+.contact-form-wrapper h3 i {
+  margin-right: 10px;
+  background: linear-gradient(135deg, #4f8cff, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(79, 140, 255, 0.3);
+  border-radius: 16px;
+  padding: 14px 18px;
+  color: #1a2a4a;
+  font-size: 1rem;
+  transition: 0.3s;
+  outline: none;
+  font-weight: 500;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #6a7a9a;
+  font-weight: 400;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #4f8cff;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(79, 140, 255, 0.3);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #4f8cff, #7b2cbf);
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  color: #ffffff;
+  border-radius: 16px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(79, 140, 255, 0.4);
+  background: linear-gradient(135deg, #7b2cbf, #4f8cff);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-form-wrapper {
+    padding: 1.5rem;
+  }
+  
+  .contact-icon-circle {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .contact-icon-circle i {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .contact-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
