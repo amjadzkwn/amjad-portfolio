@@ -9,6 +9,77 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Tambahan CSS dalam fail untuk visual yang lebih 'seronok' */
+    :root {
+      --primary: #4f8cff;
+      --glass: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Layout Penambahbaikan */
+    .section-title { text-align: center; margin-bottom: 3rem; font-size: 2.5rem; position: relative; }
+    .section-title::after { content: ''; width: 50px; height: 5px; background: var(--primary); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+    /* Experience Card Style */
+    .exp-card-wrapper {
+      display: flex;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease;
+    }
+    .exp-card-wrapper:hover { transform: translateY(-5px); }
+    .exp-img-container { width: 40%; min-height: 250px; }
+    .exp-img-container img { width: 100%; height: 100%; object-fit: cover; }
+    .exp-text { padding: 2rem; width: 60%; }
+
+    /* Project Card Upgrade */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .project-card { 
+      background: var(--glass); 
+      border-radius: 20px; 
+      overflow: hidden; 
+      border: 1px solid var(--glass-border); 
+      transition: 0.3s;
+    }
+    .project-card:hover { transform: scale(1.03); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+    .project-thumb { width: 100%; height: 200px; overflow: hidden; }
+    .project-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .project-info { padding: 1.5rem; }
+
+    /* Skills - Modern Badges */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .skill-category { 
+      background: linear-gradient(135deg, rgba(79, 140, 255, 0.1), rgba(255,255,255,0.05));
+      padding: 1.5rem; 
+      border-radius: 15px; 
+      border-left: 5px solid var(--primary);
+    }
+    .skill-tags span {
+      display: inline-block;
+      background: rgba(79, 140, 255, 0.2);
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin: 5px 2px;
+      font-size: 0.85rem;
+    }
+
+    /* Co-Curricular Visuals */
+    .cocurricular-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .co-card { background: var(--glass); border-radius: 15px; overflow: hidden; text-align: center; }
+    .co-img { width: 100%; height: 150px; }
+    .co-img img { width: 100%; height: 100%; object-fit: cover; }
+    .co-info { padding: 1rem; }
+
+    @media (max-width: 768px) {
+      .exp-card-wrapper { flex-direction: column; }
+      .exp-img-container, .exp-text { width: 100%; }
+    }
+  </style>
 </head>
 <body>
 
@@ -16,200 +87,436 @@
   <a href="#home" class="logo">Amjad</a>
   <nav>
     <a href="#home" class="active">Home</a>
-    <a href="#projects">Academic Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
     <a href="#education">Education</a>
     <a href="#skills">Skills</a>
+    <a href="#cocurricular">Co-Curricular</a>
+    <a href="#references">References</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- ================= HOME ================= -->
 <section id="home" class="home">
-  <div class="home-content">
-    <h1>Hi, I'm <span>Amjad</span></h1>
-    <h3>Data Science Student</h3>
-    <p>
-      Final-year Data Science student with hands-on experience in machine learning,
-      NLP, and analytics dashboards. Interested in applying AI to solve real-world
-      business problems.
-    </p>
-    <a href="#contact" class="btn">Contact Me</a>
-  </div>
-
-  <div class="home-img">
-    <img src="Portfolio_Image.jpg" alt="Amjad Portrait">
-  </div>
+  <div class="home-content">
+    <h1>Hi, I'm <span>Amjad</span></h1>
+    <h3>Data Science Student</h3>
+    <p>Data Science student at UMS specializing in Financial Analytics, ML, & NLP. Turning raw data into predictive insights and intelligent decision-making.</p>
+    <div class="home-sci">
+      <a href="https://www.linkedin.com/in/amjad-zakwan" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/amjadzkwn" target="_blank"><i class="fa-brands fa-github"></i></a>
+    </div>
+    <a href="#contact" class="btn">Contact Me</a>
+  </div>
+  <div class="home-img"><img src="Portfolio_Image.jpg" alt="Amjad Portrait"></div>
 </section>
 
-<!-- ================= CORE STRENGTHS ================= -->
-<section class="section light">
-  <h2 class="section-title">What I Can Do</h2>
-
-  <div class="skills-container">
-    <div class="skill-box">
-        <i class="fa-solid fa-broom"></i>
-        <span>Data Cleaning & EDA</span>
-    </div>
-    <div class="skill-box">
-        <i class="fa-solid fa-robot"></i>
-        <span>Machine Learning Modeling</span>
-    </div>
-    <div class="skill-box">
-        <i class="fa-solid fa-comments"></i>
-        <span>NLP & Sentiment Analysis</span>
-    </div>
-    <div class="skill-box">
-        <i class="fa-solid fa-chart-column"></i>
-        <span>Dashboard & Visualization</span>
+<section id="experience" class="section light">
+  <h2 class="section-title">Professional Experience</h2>
+  <div class="exp-card-wrapper">
+    <div class="exp-img-container">
+      <img src="betamek.jpg" alt="Betamek"> </div>
+    <div class="exp-text">
+      <div class="exp-date">16 March 2026 – 28 August 2026</div>
+      <h3>Automation Intern</h3>
+      <p class="company">Betamek Electronics (M) Sdn. Bhd.</p>
+      <ul>
+        <li>Trained and optimized JAKA Zu 5 robotic arm for automated installing.</li>
+        <li>Improved greasing machine operations efficiency.</li>
+        <li>Industrial automation and robotics integration.</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ================= PROJECTS ================= -->
 <section id="projects" class="section">
   <h2 class="section-title">Academic Projects</h2>
+  <div class="projects-grid">
+    
+    <div class="project-card">
+      <div class="project-thumb"><img src="AAPL_compact_dashboard.png" alt="Stock Prediction"></div>
+      <div class="project-info">
+        <h3>Stock Market Prediction</h3>
+        <p>Hybrid LSTM & NLP system. Achieved 93% R² score.</p>
+        <p class="tech-stack"><strong>Tech:</strong> Python, LSTM, FinBERT</p>
+        <a href="https://github.com/amjadzkwn/Stock-Market-Prediction-Using-Machine-Learning-and-Natural-Language-Processing.git" target="_blank" class="btn">GitHub</a>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>Stock Market Prediction Using ML & NLP</h3>
-    <p>
-      Built predictive models using financial news sentiment analysis.
-      <br><strong>Tech Stack:</strong> Python · NLP · Scikit-learn · Pandas
-    </p>
-    <a href="https://github.com/amjadzkwn/Stock-Market-Prediction-Using-Machine-Learning-and-Natural-Language-Processing.git"
-       target="_blank" class="btn">View on GitHub</a>
-  </div>
+    <div class="project-card">
+      <div class="project-thumb"><img src="SmartOps.png" alt="SmartOps"></div>
+      <div class="project-info">
+        <h3>SmartOps: Failure Forecast</h3>
+        <p>Predictive maintenance system. Improved accuracy by 8%.</p>
+        <p class="tech-stack"><strong>Tech:</strong> XGBoost, Streamlit</p>
+        <a href="https://github.com/amjadzkwn/SmartOps-ML-Driven-Failure-Forecasting.git" target="_blank" class="btn">GitHub</a>
+      </div>
+    </div>
 
-  <br><br>
+    <div class="project-card">
+      <div class="project-thumb"><img src="UI_example.png" alt="Recommendation System"></div>
+      <div class="project-info">
+        <h3>Smart Recommendation</h3>
+        <p>SVD Matrix Factorization. Reduced RMSE by 31%.</p>
+        <p class="tech-stack"><strong>Tech:</strong> SVD, Python</p>
+        <a href="https://github.com/amjadzkwn/Smart-Product-Recommendation-System-Using-User-Behaviour-Data.git" target="_blank" class="btn">GitHub</a>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>Copilot Adoption Intelligence System</h3>
-    <p>
-      AI-driven system to analyze GenAI adoption and employee sentiment.
-      <br><strong>Tech Stack:</strong> Python · ML · Sentiment Analysis · Streamlit
-    </p>
-    <a href="https://github.com/amjadzkwn/Copilot-Adoption-Intelligence-System.git"
-       target="_blank" class="btn">View on GitHub</a>
-  </div>
+    <div class="project-card">
+      <div class="project-thumb"><img src="Streamlit_Dashboard_Pt2.png" alt="Copilot Intelligence"></div>
+      <div class="project-info">
+        <h3>Copilot Adoption Intel</h3>
+        <p>AI readiness and sentiment evaluation system.</p>
+        <p class="tech-stack"><strong>Tech:</strong> NLP, Sentiment Analysis</p>
+        <a href="https://github.com/amjadzkwn/Copilot-Adoption-Intelligence-System.git" target="_blank" class="btn">GitHub</a>
+      </div>
+    </div>
 
-  <br><br>
+    <div class="project-card">
+      <div class="project-thumb"><img src="SmartRetention.png" alt="Churn Prediction"></div>
+      <div class="project-info">
+        <h3>SmartRetention: Telco Churn</h3>
+        <p>Classification models using SMOTE for imbalanced data.</p>
+        <p class="tech-stack"><strong>Tech:</strong> Random Forest, SMOTE</p>
+        <a href="https://github.com/amjadzkwn/SmartRetention-Engine.git" target="_blank" class="btn">GitHub</a>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>Superstore Analytics Dashboard</h3>
-    <p>
-      Interactive dashboard for sales and customer insights.
-      <br><strong>Tech Stack:</strong> Power BI · SQL · Data Visualization
-    </p>
-    <a href="https://github.com/amjadzkwn/Superstore-Analytics-Dashboard.git"
-       target="_blank" class="btn">View on GitHub</a>
+    <div class="project-card">
+      <div class="project-thumb"><img src="Superstore Analytics Dashboard.png" alt="Analytics Dashboard"></div>
+      <div class="project-info">
+        <h3>Superstore Dashboard</h3>
+        <p>Interactive sales and regional trend analysis.</p>
+        <p class="tech-stack"><strong>Tech:</strong> Power BI, SQL</p>
+        <a href="https://github.com/amjadzkwn/Superstore-Analytics-Dashboard.git" target="_blank" class="btn">GitHub</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ================= EDUCATION ================= -->
 <section id="education" class="section light">
   <h2 class="section-title">Education</h2>
-
   <div class="timeline">
-    <div class="timeline-item">
-      <img src="ums.jpg" alt="UMS">
+    <div class="timeline-item hidden">
+      <img src="ums.jpg" alt="UMS" onerror="this.src='https://via.placeholder.com/75?text=UMS'">>
       <div class="timeline-content">
-        <h3>Bachelor of Computer Science (Data Science)</h3>
-        <p><strong>University Malaysia Sabah</strong></p>
-        <span>2022 – Present</span>
+        <h3>Bachelor of Computer Science with Honours (Data Science)</h3>
+        <p><strong>University of Malaysia Sabah</strong> | 2022 – Present</p>
       </div>
     </div>
-    <div class="timeline-item">
-      <img src="kmp.jpg" alt="KMP">
+    <div class="timeline-item hidden">
+      <img src="kmp.jpg" alt="KMP" onerror="this.src='https://via.placeholder.com/75?text=KMP'">>
       <div class="timeline-content">
-        <h3>Matriculation Programme</h3>
-        <p><strong>Kolej Matrikulasi Perlis</strong></p>
-        <span>2021 – 2022</span>
+        <h3>Matriculation Program (Science Stream)</h3>
+        <p><strong>Perlis Matriculation College</strong> | 2021 – 2022</p>
       </div>
     </div>
-    <div class="timeline-item">
-      <img src="saser.jpg" alt="SASER">
+    <div class="timeline-item hidden">
+      <img src="saser.jpg" alt="SASER" onerror="this.src='https://via.placeholder.com/75?text=SASER'">>
       <div class="timeline-content">
-        <h3>Secondary School</h3>
-        <p><strong>Sekolah Menengah Sains Tuanku Munawir</strong></p>
-        <span>2016 – 2021</span>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <img src="skdp.jpg" alt="SKDP">
-      <div class="timeline-content">
-        <h3>Primary School</h3>
-        <p><strong>Sekolah Kebangsaan Desa Pandan</strong></p>
-        <span>2010 – 2015</span>
+        <h3>Sijil Pelajaran Malaysia (SPM)</h3>
+        <p><strong>Tuanku Munawir Science School</strong> | 2016 – 2020</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= SKILLS ================= -->
 <section id="skills" class="section">
-  <h2 class="section-title">Skills</h2>
-
-  <div class="skills-container">
-    <div class="skill-box">
-      <i class="fa-brands fa-python"></i>
-      <span>Python</span>
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h4><i class="fa-solid fa-code"></i> Languages</h4>
+      <div class="skill-tags">
+        <span>Python</span> <span>SQL</span> <span>HTML/CSS</span> <span>Git</span>
+      </div>
     </div>
-
-    <div class="skill-box">
-      <i class="fa-solid fa-database"></i>
-      <span>SQL</span>
+    <div class="skill-category">
+      <h4><i class="fa-solid fa-layer-group"></i> Libraries</h4>
+      <div class="skill-tags">
+        <span>Pandas</span> <span>NumPy</span> <span>Scikit-learn</span> <span>TensorFlow</span> <span>PyTorch</span>
+      </div>
     </div>
-
-    <div class="skill-box">
-      <i class="fa-solid fa-brain"></i>
-      <span>Machine Learning</span>
+    <div class="skill-category">
+      <h4><i class="fa-solid fa-chart-pie"></i> Visualization</h4>
+      <div class="skill-tags">
+        <span>Power BI</span> <span>Matplotlib</span> <span>Plotly</span> <span>Streamlit</span>
+      </div>
     </div>
-
-    <div class="skill-box">
-      <i class="fa-solid fa-chart-line"></i>
-      <span>Data Analysis</span>
+    <div class="skill-category">
+      <h4><i class="fa-solid fa-brain"></i> ML & NLP</h4>
+      <div class="skill-tags">
+        <span>Random Forest</span> <span>LSTM</span> <span>BERT</span> <span>FinBERT</span>
+      </div>
     </div>
-
-    <div class="skill-box">
-      <i class="fa-solid fa-chart-pie"></i>
-      <span>Power BI</span>
+    <div class="skill-category">
+      <h4><i class="fa-solid fa-cloud"></i> Cloud & Automation</h4>
+      <div class="skill-tags">
+        <span>Power Apps</span> <span>Power Automate</span> <span>SharePoint</span>
+      </div>
     </div>
-
-    <div class="skill-box">
-      <i class="fa-solid fa-stream"></i>
-      <span>Streamlit</span>
-    </div>
-
-    <div class="skill-box">
-      <i class="fa-brands fa-github"></i>
-      <span>Git & GitHub</span>
-    </div>
-
-    <div class="skill-box">
-      <i class="fa-brands fa-html5"></i>
-      <span>HTML & CSS</span>
+    <div class="skill-category">
+      <h4><i class="fa-solid fa-flask"></i> Web Frameworks</h4>
+      <div class="skill-tags">
+        <span>Flask</span> <span>Streamlit</span> <span>HTML/CSS</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="section light">
-  <h2 class="section-title">Contact</h2>
+<section id="cocurricular" class="section light">
+  <h2 class="section-title">Co-Curricular</h2>
+  
+  <div class="slider-container">
+    <button class="slider-btn prev-btn" onclick="moveSlider(-1)"><i class="fas fa-chevron-left"></i></button>
+    <button class="slider-btn next-btn" onclick="moveSlider(1)"><i class="fas fa-chevron-right"></i></button>
+        
+    <div class="cocurricular-wrapper" id="slider">
+      <div class="co-card active">
+        <div class="co-img"><img src="dojo.jpg" alt="DOJO"></div>
+        <div class="co-info"><strong>DOJO Induction Training</strong><p>Participant | March 2026</p></div>
+      </div>
+      <div class="co-card">
+        <div class="co-img"><img src="jelajah_it.JPG" alt="Jelajah IT"></div>
+        <div class="co-info"><strong>Explore IT at SMK Pekan</strong><p>Committee Members | November 2025</p></div>
+      </div>
+      <div class="co-card">
+        <div class="co-img"><img src="sekretariat.jpg" alt="JAKMAS"></div>
+        <div class="co-info"><strong>Residential College Secretariat</strong><p>Committee Members | Nov 2022 – Jul 2023</p></div>
+      </div>
+      <div class="co-card">
+        <div class="co-img"><img src="neca.jpg" alt="NECA"></div>
+        <div class="co-info"><strong>National Entrepreneurship & Career Festival</strong><p>Asst. Head of Sub-Committee | June 2023</p></div>
+      </div>
+      <div class="co-card">
+        <div class="co-img"><img src="ilmu.jpg" alt="ILMU"></div>
+        <div class="co-info"><strong>Inspiration for University Student Visits</strong><p>Committee Members | May 2023</p></div>
+      </div>
+      <div class="co-card">
+        <div class="co-img"><img src="fki.jpg" alt="FKI"></div>
+        <div class="co-info"><strong>Islamic Art Festival</strong><p>Treasurer | April 2023</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div class="contact-box">
-    <p><i class="fa-solid fa-phone"></i> +60 17-3155901</p>
-    <p><i class="fa-solid fa-envelope"></i> amjadzakwan5@gmail.com</p>
-    <p><i class="fa-brands fa-github"></i>
-      <a href="https://github.com/amjadzkwn" target="_blank">GitHub</a>
-    </p>
-    <p><i class="fa-brands fa-linkedin"></i>
-      <a href="https://www.linkedin.com/in/amjad-zakwan" target="_blank">LinkedIn</a>
-    </p>
+<section id="references" class="section">
+  <h2 class="section-title">References</h2>
+  <div class="references-grid">
+    
+    <!-- Industrial Supervisor -->
+    <div class="ref-card hidden">
+      <div class="ref-img">
+        <img src="unknown.png" alt="Industrial Supervisor" onerror="this.src='https://via.placeholder.com/400x220?text=Industrial+Supervisor'">
+      </div>
+      <div class="ref-info">
+        <h3>Tai Jin Fung</h3>
+        <div class="position">Senior Engineer, Betamek Electronics (M) Sdn. Bhd.</div>
+        <div class="ref-type">🏭 Industrial Supervisor</div>
+      </div>
+    </div>
+
+    <!-- Academic Supervisor -->
+    <div class="ref-card hidden">
+      <div class="ref-img">
+        <img src="academic_supervisor.jpg" alt="Academic Supervisor" onerror="this.src='https://via.placeholder.com/400x220?text=Academic+Supervisor'">
+      </div>
+      <div class="ref-info">
+        <h3>Ts. Dr. Rayner @ Henry Pailus</h3>
+        <div class="position">Senior Lecturer, Data Science Program, UMS</div>
+        <div class="ref-type">🎓 Academic Supervisor</div>
+      </div>
+    </div>
+
+    <!-- FYP Examiner -->
+    <div class="ref-card hidden">
+      <div class="ref-img">
+        <img src="fyp_examiner.jpg" alt="FYP Examiner" onerror="this.src='https://via.placeholder.com/400x220?text=FYP+Examiner'">
+      </div>
+      <div class="ref-info">
+        <h3>Assoc. Prof. Ts. Dr. Chin Kim On</h3>
+        <div class="position">Associate Professor, Software Engineering Program, UMS</div>
+        <div class="ref-type">📝 FYP Examiner</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="section light">
+  <h2 class="section-title">Let's Connect</h2>
+  <div class="contact-container">
+    <div class="contact-card">
+      <div class="contact-icon-wrapper">
+        <div class="contact-icon-circle">
+          <i class="fa-solid fa-phone"></i>
+        </div>
+      </div>
+      <h3>Phone</h3>
+      <p>+60 17-3155901</p>
+      <span class="contact-label">Available 9AM - 6PM</span>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon-wrapper">
+        <div class="contact-icon-circle">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+      </div>
+      <h3>Email</h3>
+      <p>amjadzakwan5@gmail.com</p>
+      <span class="contact-label">Response within 24h</span>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon-wrapper">
+        <div class="contact-icon-circle">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+      </div>
+      <h3>LinkedIn</h3>
+      <p>Connect professionally</p>
+      <a href="https://www.linkedin.com/in/amjad-zakwan" target="_blank" class="contact-social-btn">Visit Profile →</a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon-wrapper">
+        <div class="contact-icon-circle">
+          <i class="fa-brands fa-github"></i>
+        </div>
+      </div>
+      <h3>GitHub</h3>
+      <p>Explore my projects</p>
+      <a href="https://github.com/amjadzkwn" target="_blank" class="contact-social-btn">View Repos →</a>
+    </div>
+  </div>
+  
+    <div class="contact-form-wrapper">
+    <h3><i class="fa-regular fa-paper-plane"></i> Send me a message</h3>
+    <form action="#" method="post" class="contact-form">
+      <div class="form-row">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+      </div>
+      <input type="text" placeholder="Subject">
+      <textarea rows="4" placeholder="Your Message..."></textarea>
+      <button type="submit" class="btn submit-btn">
+        <i class="fa-regular fa-paper-plane"></i> Send Message
+      </button>
+    </form>
   </div>
 </section>
 
 <footer>
   <p>© 2026 Amjad Zakwan | All Rights Reserved</p>
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// Three.js Background
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+renderer.domElement.style.position = "fixed";
+renderer.domElement.style.top = "0";
+renderer.domElement.style.left = "0";
+renderer.domElement.style.zIndex = "-1";
+
+const geometry = new THREE.BufferGeometry();
+const vertices = [];
+for (let i = 0; i < 5000; i++) {
+    vertices.push(THREE.MathUtils.randFloatSpread(2000), THREE.MathUtils.randFloatSpread(2000), THREE.MathUtils.randFloatSpread(2000));
+}
+geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+const material = new THREE.PointsMaterial({ color: 0x4f8cff });
+const points = new THREE.Points(geometry, material);
+scene.add(points);
+camera.position.z = 500;
+
+function animate() {
+    requestAnimationFrame(animate);
+    points.rotation.x += 0.0005;
+    points.rotation.y += 0.001;
+    renderer.render(scene, camera);
+}
+animate();
+
+// ========== SLIDER CO-CURRICULAR ==========
+let currentIndex = 0;
+const cards = document.querySelectorAll('.co-card');
+
+function updateSlider() {
+    cards.forEach((card, i) => {
+        card.classList.remove('active', 'prev', 'next');
+        if (i === currentIndex) {
+            card.classList.add('active');
+        } else if (i === (currentIndex - 1 + cards.length) % cards.length) {
+            card.classList.add('prev');
+        } else if (i === (currentIndex + 1) % cards.length) {
+            card.classList.add('next');
+        }
+    });
+}
+
+function moveSlider(direction) {
+    currentIndex = (currentIndex + direction + cards.length) % cards.length;
+    updateSlider();
+}
+
+// ========== INTERSECTION OBSERVER UNTUK ANIMASI ==========
+const animElements = document.querySelectorAll("section, .exp-card-wrapper, .timeline-item, .skill-category, .project-card, .ref-card");
+
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.1 });
+
+animElements.forEach(el => {
+    el.classList.add("hidden");
+    scrollObserver.observe(el);
+});
+
+// ========== ACTIVE NAVIGATION LINK ON SCROLL ==========
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+function updateActiveLink() {
+    let current = "";
+    const scrollPosition = window.scrollY + 150; // Offset untuk header fixed
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+        const href = link.getAttribute("href").substring(1); // Buang # dari href
+        if (href === current) {
+            link.classList.add("active");
+        }
+    });
+}
+
+// Event listeners untuk scroll
+window.addEventListener("scroll", updateActiveLink);
+window.addEventListener("load", updateActiveLink);
+
+// Mulakan slider selepas DOM siap
+document.addEventListener('DOMContentLoaded', () => {
+    updateSlider();
+});
+</script>
 
 </body>
 </html>
