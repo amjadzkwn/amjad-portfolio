@@ -121,9 +121,8 @@
       <h3>Automation Intern</h3>
       <p class="company">Betamek Electronics (M) Sdn. Bhd.</p>
       <ul>
-        <li>Trained and optimized JAKA Zu 5 robotic arm for automated installing.</li>
-        <li>Improved greasing machine operations efficiency.</li>
-        <li>Industrial automation and robotics integration.</li>
+        <li>Developed a PCB NG Detection System utilizing YOLOv8 and Raspberry Pi 4 that achieved 90% detection accuracy.</li>
+        <li>Coordinated training, testing, and fine-tuning processes for automated greasing machinery with vendor engineers, reducing project delays by 10%.</li>
       </ul>
     </div>
   </div>
@@ -133,6 +132,16 @@
   <h2 class="section-title">Academic Projects</h2>
   <div class="projects-grid">
     
+    <div class="project-card">
+      <div class="project-thumb"><img src="pcbDetection.jpg" alt="PCB NG Detection"></div>
+      <div class="project-info">
+        <h3>PCB NG Detection System</h3>
+        <p>Used YOLOv8 for NG detection. Achieved 90% accuracy.</p>
+        <p class="tech-stack"><strong>Tech:</strong> Python, YOLOv8, Raspberry Pi 4</p>
+        <a href="https://github.com/amjadzkwn/PCB-NG-Detection-System.git" target="_blank" class="btn">GitHub</a>
+      </div>
+    </div>
+
     <div class="project-card">
       <div class="project-thumb"><img src="AAPL_compact_dashboard.png" alt="Stock Prediction"></div>
       <div class="project-info">
@@ -180,6 +189,17 @@
         <p>Classification models using SMOTE for imbalanced data.</p>
         <p class="tech-stack"><strong>Tech:</strong> Random Forest, SMOTE</p>
         <a href="https://github.com/amjadzkwn/SmartRetention-Engine.git" target="_blank" class="btn">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb"><img src="FinancialNewsVerification.png" alt="Analytics Dashboard"></div>
+      <div class="project-info">
+        <h3>AI Powered Financial News Verification dApp</h3>
+        <p>Advanced financial news authenticity checker.</p>
+        <p class="tech-stack"><strong>Tech:</strong> Web3, Phyton</p>
+        <a href="https://github.com/amjadzkwn/AI-powered-financial-news-verification-dApp" target="_blank" class="btn">GitHub</a>
+        <a href="https://ai-powered-financial-news-verification-dapp.streamlit.app/" target="_blank" class="btn">Try it!</a>
       </div>
     </div>
 
@@ -274,6 +294,10 @@
         
     <div class="cocurricular-wrapper" id="slider">
       <div class="co-card active">
+        <div class="co-img"><img src="k-youth.png" alt="K-Youth"></div>
+        <div class="co-info"><strong>K-Youth</strong><p>Trainee | May 2026</p></div>
+      </div>
+      <div class="co-card">
         <div class="co-img"><img src="dojo.jpg" alt="DOJO"></div>
         <div class="co-info"><strong>DOJO Induction Training</strong><p>Participant | March 2026</p></div>
       </div>
@@ -391,21 +415,6 @@
       <a href="https://github.com/amjadzkwn" target="_blank" class="contact-social-btn">View Repos →</a>
     </div>
   </div>
-  
-    <div class="contact-form-wrapper">
-    <h3><i class="fa-regular fa-paper-plane"></i> Send me a message</h3>
-    <form action="#" method="post" class="contact-form">
-      <div class="form-row">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-      </div>
-      <input type="text" placeholder="Subject">
-      <textarea rows="4" placeholder="Your Message..."></textarea>
-      <button type="submit" class="btn submit-btn">
-        <i class="fa-regular fa-paper-plane"></i> Send Message
-      </button>
-    </form>
-  </div>
 </section>
 
 <footer>
@@ -501,7 +510,7 @@ function updateActiveLink() {
 
     navLinks.forEach(link => {
         link.classList.remove("active");
-        const href = link.getAttribute("href").substring(1); // Buang # dari href
+        const href = link.getAttribute("href").substring(1);
         if (href === current) {
             link.classList.add("active");
         }
