@@ -1,531 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Amjad Portfolio - Data Science Student">
-  <meta name="author" content="Amjad Zakwan">
-  <title>Amjad | Data Science Student</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Amjad Zakwan — Data Science, AI and Automation Portfolio" />
+  <meta name="author" content="Amjad Zakwan" />
+  <meta name="theme-color" content="#070b17" />
+  <title>Amjad Zakwan | AI & Data Portfolio</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Tambahan CSS dalam fail untuk visual yang lebih 'seronok' */
-    :root {
-      --primary: #4f8cff;
-      --glass: rgba(255, 255, 255, 0.1);
-      --glass-border: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Layout Penambahbaikan */
-    .section-title { text-align: center; margin-bottom: 3rem; font-size: 2.5rem; position: relative; }
-    .section-title::after { content: ''; width: 50px; height: 5px; background: var(--primary); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
-
-    /* Experience Card Style */
-    .exp-card-wrapper {
-      display: flex;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      overflow: hidden;
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease;
-    }
-    .exp-card-wrapper:hover { transform: translateY(-5px); }
-    .exp-img-container { width: 40%; min-height: 250px; }
-    .exp-img-container img { width: 100%; height: 100%; object-fit: cover; }
-    .exp-text { padding: 2rem; width: 60%; }
-
-    /* Project Card Upgrade */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .project-card { 
-      background: var(--glass); 
-      border-radius: 20px; 
-      overflow: hidden; 
-      border: 1px solid var(--glass-border); 
-      transition: 0.3s;
-    }
-    .project-card:hover { transform: scale(1.03); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-    .project-thumb { width: 100%; height: 200px; overflow: hidden; }
-    .project-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .project-info { padding: 1.5rem; }
-
-    /* Skills - Modern Badges */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-    .skill-category { 
-      background: linear-gradient(135deg, rgba(79, 140, 255, 0.1), rgba(255,255,255,0.05));
-      padding: 1.5rem; 
-      border-radius: 15px; 
-      border-left: 5px solid var(--primary);
-    }
-    .skill-tags span {
-      display: inline-block;
-      background: rgba(79, 140, 255, 0.2);
-      padding: 5px 12px;
-      border-radius: 20px;
-      margin: 5px 2px;
-      font-size: 0.85rem;
-    }
-
-    /* Co-Curricular Visuals */
-    .cocurricular-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .co-card { background: var(--glass); border-radius: 15px; overflow: hidden; text-align: center; }
-    .co-img { width: 100%; height: 150px; }
-    .co-img img { width: 100%; height: 100%; object-fit: cover; }
-    .co-info { padding: 1rem; }
-
-    @media (max-width: 768px) {
-      .exp-card-wrapper { flex-direction: column; }
-      .exp-img-container, .exp-text { width: 100%; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
 
-<header>
-  <a href="#home" class="logo">Amjad</a>
-  <nav>
-    <a href="#home" class="active">Home</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#cocurricular">Co-Curricular</a>
-    <a href="#references">References</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <header class="site-header" id="site-header">
+    <a class="logo" href="#home" aria-label="Go to home">
+      <span class="logo-mark">AZ</span>
+      <span class="logo-text">AMJAD<span>.DEV</span></span>
+    </a>
 
-<section id="home" class="home">
-  <div class="home-content">
-    <h1>Hi, I'm <span>Amjad</span></h1>
-    <h3>Data Science Student</h3>
-    <p>Data Science student at UMS specializing in Financial Analytics, ML, & NLP. Turning raw data into predictive insights and intelligent decision-making.</p>
-    <div class="home-sci">
-      <a href="https://www.linkedin.com/in/amjad-zakwan" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://github.com/amjadzkwn" target="_blank"><i class="fa-brands fa-github"></i></a>
-    </div>
-    <a href="#contact" class="btn">Contact Me</a>
-  </div>
-  <div class="home-img"><img src="Portfolio_Image.jpg" alt="Amjad Portrait"></div>
-</section>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-<section id="experience" class="section light">
-  <h2 class="section-title">Professional Experience</h2>
-  <div class="exp-card-wrapper">
-    <div class="exp-img-container">
-      <img src="betamek.jpg" alt="Betamek"> </div>
-    <div class="exp-text">
-      <div class="exp-date">16 March 2026 – 28 August 2026</div>
-      <h3>Automation Intern</h3>
-      <p class="company">Betamek Electronics (M) Sdn. Bhd.</p>
-      <ul>
-        <li>Developed a PCB NG Detection System utilizing YOLOv8 and Raspberry Pi 4 that achieved 90% detection accuracy.</li>
-        <li>Coordinated training, testing, and fine-tuning processes for automated greasing machinery with vendor engineers, reducing project delays by 10%.</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <nav class="nav" id="nav">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-<section id="projects" class="section">
-  <h2 class="section-title">Academic Projects</h2>
-  <div class="projects-grid">
-    
-    <div class="project-card">
-      <div class="project-thumb"><img src="pcbDetection.jpg" alt="PCB NG Detection"></div>
-      <div class="project-info">
-        <h3>PCB NG Detection System</h3>
-        <p>Used YOLOv8 for NG detection. Achieved 90% accuracy.</p>
-        <p class="tech-stack"><strong>Tech:</strong> Python, YOLOv8, Raspberry Pi 4</p>
-        <a href="https://github.com/amjadzkwn/PCB-NG-Detection-System.git" target="_blank" class="btn">GitHub</a>
-      </div>
-    </div>
+    <a class="header-cta magnetic" href="mailto:amjadzakwan5@gmail.com">Let’s talk <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+  </header>
 
-    <div class="project-card">
-      <div class="project-thumb"><img src="AAPL_compact_dashboard.png" alt="Stock Prediction"></div>
-      <div class="project-info">
-        <h3>Stock Market Prediction</h3>
-        <p>Hybrid LSTM & NLP system. Achieved 93% R² score.</p>
-        <p class="tech-stack"><strong>Tech:</strong> Python, LSTM, FinBERT</p>
-        <a href="https://github.com/amjadzkwn/Stock-Market-Prediction-Using-Machine-Learning-and-Natural-Language-Processing.git" target="_blank" class="btn">GitHub</a>
-      </div>
-    </div>
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-orb orb-one"></div>
+      <div class="hero-orb orb-two"></div>
 
-    <div class="project-card">
-      <div class="project-thumb"><img src="SmartOps.png" alt="SmartOps"></div>
-      <div class="project-info">
-        <h3>SmartOps: Failure Forecast</h3>
-        <p>Predictive maintenance system. Improved accuracy by 8%.</p>
-        <p class="tech-stack"><strong>Tech:</strong> XGBoost, Streamlit</p>
-        <a href="https://github.com/amjadzkwn/SmartOps-ML-Driven-Failure-Forecasting.git" target="_blank" class="btn">GitHub</a>
-      </div>
-    </div>
+      <div class="hero-content reveal">
+        <div class="status-pill"><span></span> Available for AI & Data opportunities</div>
+        <p class="eyebrow">DATA SCIENCE · AI ENGINEERING · AUTOMATION</p>
+        <h1>I build intelligent systems that turn <span class="gradient-text">data into impact.</span></h1>
+        <p class="hero-copy">I’m Amjad Zakwan, a Data Science student and Automation Intern focused on machine learning, computer vision, predictive analytics and production-ready AI solutions.</p>
 
-    <div class="project-card">
-      <div class="project-thumb"><img src="UI_example.png" alt="Recommendation System"></div>
-      <div class="project-info">
-        <h3>Smart Recommendation</h3>
-        <p>SVD Matrix Factorization. Reduced RMSE by 31%.</p>
-        <p class="tech-stack"><strong>Tech:</strong> SVD, Python</p>
-        <a href="https://github.com/amjadzkwn/Smart-Product-Recommendation-System-Using-User-Behaviour-Data.git" target="_blank" class="btn">GitHub</a>
-      </div>
-    </div>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary magnetic">Explore my work <i class="fa-solid fa-arrow-down"></i></a>
+          <a href="https://github.com/amjadzkwn" target="_blank" rel="noopener" class="btn btn-ghost magnetic"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
 
-    <div class="project-card">
-      <div class="project-thumb"><img src="Streamlit_Dashboard_Pt2.png" alt="Copilot Intelligence"></div>
-      <div class="project-info">
-        <h3>Copilot Adoption Intel</h3>
-        <p>AI readiness and sentiment evaluation system.</p>
-        <p class="tech-stack"><strong>Tech:</strong> NLP, Sentiment Analysis</p>
-        <a href="https://github.com/amjadzkwn/Copilot-Adoption-Intelligence-System.git" target="_blank" class="btn">GitHub</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-thumb"><img src="SmartRetention.png" alt="Churn Prediction"></div>
-      <div class="project-info">
-        <h3>SmartRetention: Telco Churn</h3>
-        <p>Classification models using SMOTE for imbalanced data.</p>
-        <p class="tech-stack"><strong>Tech:</strong> Random Forest, SMOTE</p>
-        <a href="https://github.com/amjadzkwn/SmartRetention-Engine.git" target="_blank" class="btn">GitHub</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-thumb"><img src="FinancialNewsVerification.png" alt="News Verification Apps"></div>
-      <div class="project-info">
-        <h3>AI Powered Financial News Verification dApp</h3>
-        <p>Advanced financial news authenticity checker.</p>
-        <p class="tech-stack"><strong>Tech:</strong> Web3, Phyton</p>
-        <a href="https://github.com/amjadzkwn/AI-powered-financial-news-verification-dApp" target="_blank" class="btn">GitHub</a>
-        <a href="https://ai-powered-financial-news-verification-dapp.streamlit.app/" target="_blank" class="btn">Try it!</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-thumb"><img src="Superstore Analytics Dashboard.png" alt="Analytics Dashboard"></div>
-      <div class="project-info">
-        <h3>Superstore Dashboard</h3>
-        <p>Interactive sales and regional trend analysis.</p>
-        <p class="tech-stack"><strong>Tech:</strong> Power BI, SQL</p>
-        <a href="https://github.com/amjadzkwn/Superstore-Analytics-Dashboard.git" target="_blank" class="btn">GitHub</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="education" class="section light">
-  <h2 class="section-title">Education</h2>
-  <div class="timeline">
-    <div class="timeline-item hidden">
-      <img src="ums.jpg" alt="UMS" onerror="this.src='https://via.placeholder.com/75?text=UMS'">>
-      <div class="timeline-content">
-        <h3>Bachelor of Computer Science with Honours (Data Science)</h3>
-        <p><strong>University of Malaysia Sabah</strong> | 2022 – Present</p>
-      </div>
-    </div>
-    <div class="timeline-item hidden">
-      <img src="kmp.jpg" alt="KMP" onerror="this.src='https://via.placeholder.com/75?text=KMP'">>
-      <div class="timeline-content">
-        <h3>Matriculation Program (Science Stream)</h3>
-        <p><strong>Perlis Matriculation College</strong> | 2021 – 2022</p>
-      </div>
-    </div>
-    <div class="timeline-item hidden">
-      <img src="saser.jpg" alt="SASER" onerror="this.src='https://via.placeholder.com/75?text=SASER'">>
-      <div class="timeline-content">
-        <h3>Sijil Pelajaran Malaysia (SPM)</h3>
-        <p><strong>Tuanku Munawir Science School</strong> | 2016 – 2020</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="skills" class="section">
-  <h2 class="section-title">Technical Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-category">
-      <h4><i class="fa-solid fa-code"></i> Languages</h4>
-      <div class="skill-tags">
-        <span>Python</span> <span>SQL</span> <span>HTML/CSS</span> <span>Git</span>
-      </div>
-    </div>
-    <div class="skill-category">
-      <h4><i class="fa-solid fa-layer-group"></i> Libraries</h4>
-      <div class="skill-tags">
-        <span>Pandas</span> <span>NumPy</span> <span>Scikit-learn</span> <span>TensorFlow</span> <span>PyTorch</span>
-      </div>
-    </div>
-    <div class="skill-category">
-      <h4><i class="fa-solid fa-chart-pie"></i> Visualization</h4>
-      <div class="skill-tags">
-        <span>Power BI</span> <span>Matplotlib</span> <span>Plotly</span> <span>Streamlit</span>
-      </div>
-    </div>
-    <div class="skill-category">
-      <h4><i class="fa-solid fa-brain"></i> ML & NLP</h4>
-      <div class="skill-tags">
-        <span>Random Forest</span> <span>LSTM</span> <span>BERT</span> <span>FinBERT</span>
-      </div>
-    </div>
-    <div class="skill-category">
-      <h4><i class="fa-solid fa-cloud"></i> Cloud & Automation</h4>
-      <div class="skill-tags">
-        <span>Power Apps</span> <span>Power Automate</span> <span>SharePoint</span>
-      </div>
-    </div>
-    <div class="skill-category">
-      <h4><i class="fa-solid fa-flask"></i> Web Frameworks</h4>
-      <div class="skill-tags">
-        <span>Flask</span> <span>Streamlit</span> <span>HTML/CSS</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="cocurricular" class="section light">
-  <h2 class="section-title">Co-Curricular</h2>
-  
-  <div class="slider-container">
-    <button class="slider-btn prev-btn" onclick="moveSlider(-1)"><i class="fas fa-chevron-left"></i></button>
-    <button class="slider-btn next-btn" onclick="moveSlider(1)"><i class="fas fa-chevron-right"></i></button>
-        
-    <div class="cocurricular-wrapper" id="slider">
-      <div class="co-card active">
-        <div class="co-img"><img src="k-youth.png" alt="K-Youth"></div>
-        <div class="co-info"><strong>K-Youth</strong><p>Trainee | May 2026</p></div>
-      </div>
-      <div class="co-card">
-        <div class="co-img"><img src="dojo.jpg" alt="DOJO"></div>
-        <div class="co-info"><strong>DOJO Induction Training</strong><p>Participant | March 2026</p></div>
-      </div>
-      <div class="co-card">
-        <div class="co-img"><img src="jelajah_it.JPG" alt="Jelajah IT"></div>
-        <div class="co-info"><strong>Explore IT at SMK Pekan</strong><p>Committee Members | November 2025</p></div>
-      </div>
-      <div class="co-card">
-        <div class="co-img"><img src="sekretariat.jpg" alt="JAKMAS"></div>
-        <div class="co-info"><strong>Residential College Secretariat</strong><p>Committee Members | Nov 2022 – Jul 2023</p></div>
-      </div>
-      <div class="co-card">
-        <div class="co-img"><img src="neca.jpg" alt="NECA"></div>
-        <div class="co-info"><strong>National Entrepreneurship & Career Festival</strong><p>Asst. Head of Sub-Committee | June 2023</p></div>
-      </div>
-      <div class="co-card">
-        <div class="co-img"><img src="ilmu.jpg" alt="ILMU"></div>
-        <div class="co-info"><strong>Inspiration for University Student Visits</strong><p>Committee Members | May 2023</p></div>
-      </div>
-      <div class="co-card">
-        <div class="co-img"><img src="fki.jpg" alt="FKI"></div>
-        <div class="co-info"><strong>Islamic Art Festival</strong><p>Treasurer | April 2023</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="references" class="section">
-  <h2 class="section-title">References</h2>
-  <div class="references-grid">
-    
-    <!-- Industrial Supervisor -->
-    <div class="ref-card hidden">
-      <div class="ref-img">
-        <img src="unknown.png" alt="Industrial Supervisor" onerror="this.src='https://via.placeholder.com/400x220?text=Industrial+Supervisor'">
-      </div>
-      <div class="ref-info">
-        <h3>Tai Jin Fung</h3>
-        <div class="position">Senior Engineer, Betamek Electronics (M) Sdn. Bhd.</div>
-        <div class="ref-type">🏭 Industrial Supervisor</div>
-      </div>
-    </div>
-
-    <!-- Academic Supervisor -->
-    <div class="ref-card hidden">
-      <div class="ref-img">
-        <img src="academic_supervisor.jpg" alt="Academic Supervisor" onerror="this.src='https://via.placeholder.com/400x220?text=Academic+Supervisor'">
-      </div>
-      <div class="ref-info">
-        <h3>Ts. Dr. Rayner @ Henry Pailus</h3>
-        <div class="position">Senior Lecturer, Data Science Program, UMS</div>
-        <div class="ref-type">🎓 Academic Supervisor</div>
-      </div>
-    </div>
-
-    <!-- FYP Examiner -->
-    <div class="ref-card hidden">
-      <div class="ref-img">
-        <img src="fyp_examiner.jpg" alt="FYP Examiner" onerror="this.src='https://via.placeholder.com/400x220?text=FYP+Examiner'">
-      </div>
-      <div class="ref-info">
-        <h3>Assoc. Prof. Ts. Dr. Chin Kim On</h3>
-        <div class="position">Associate Professor, Software Engineering Program, UMS</div>
-        <div class="ref-type">📝 FYP Examiner</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="contact" class="section light">
-  <h2 class="section-title">Let's Connect</h2>
-  <div class="contact-container">
-    <div class="contact-card">
-      <div class="contact-icon-wrapper">
-        <div class="contact-icon-circle">
-          <i class="fa-solid fa-phone"></i>
+        <div class="hero-stats">
+          <div><strong data-counter="8">0</strong><span>Featured projects</span></div>
+          <div><strong data-counter="90" data-suffix="%">0</strong><span>PCB detection result</span></div>
+          <div><strong data-counter="6" data-suffix="+">0</strong><span>AI / data domains</span></div>
         </div>
       </div>
-      <h3>Phone</h3>
-      <p>+60 17-3155901</p>
-      <span class="contact-label">Available 9AM - 6PM</span>
-    </div>
 
-    <div class="contact-card">
-      <div class="contact-icon-wrapper">
-        <div class="contact-icon-circle">
-          <i class="fa-solid fa-envelope"></i>
+      <div class="hero-visual reveal delay-1">
+        <div class="visual-ring ring-one"></div>
+        <div class="visual-ring ring-two"></div>
+        <div class="profile-shell tilt-card">
+          <div class="profile-grid"></div>
+          <img src="Portfolio_Image.jpg" alt="Portrait of Amjad Zakwan" />
+          <div class="scan-line"></div>
+          <div class="profile-label"><span>AI / DATA</span><strong>AMJAD ZAKWAN</strong></div>
+        </div>
+        <div class="floating-card card-python"><i class="fa-brands fa-python"></i><span>Python</span></div>
+        <div class="floating-card card-ai"><i class="fa-solid fa-brain"></i><span>Machine Learning</span></div>
+        <div class="floating-card card-cv"><i class="fa-solid fa-eye"></i><span>Computer Vision</span></div>
+      </div>
+
+      <a class="scroll-cue" href="#about" aria-label="Scroll to about section"><span>Scroll</span><i class="fa-solid fa-arrow-down"></i></a>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-heading reveal">
+        <p class="eyebrow">01 — ABOUT ME</p>
+        <h2>Technical thinking.<br><span class="muted">Business-focused execution.</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <article class="glass-card about-copy reveal">
+          <p class="lead">I enjoy solving real operational problems with data, not just training models for accuracy.</p>
+          <p>My work spans computer vision on edge devices, predictive maintenance, NLP, recommendation systems, financial analytics and interactive business dashboards. I focus on the full pipeline—from raw data and experimentation to deployment and communication.</p>
+          <div class="about-links">
+            <a href="https://www.linkedin.com/in/amjad-zakwan" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+            <a href="mailto:amjadzakwan5@gmail.com"><i class="fa-regular fa-envelope"></i> Email me</a>
+          </div>
+        </article>
+
+        <div class="about-cards">
+          <article class="mini-card reveal delay-1"><span>FOCUS</span><i class="fa-solid fa-microchip"></i><h3>Applied AI</h3><p>Practical models designed around real users, constraints and measurable outcomes.</p></article>
+          <article class="mini-card reveal delay-2"><span>STRENGTH</span><i class="fa-solid fa-chart-line"></i><h3>Data Storytelling</h3><p>Clear dashboards and insights that help stakeholders make faster decisions.</p></article>
+          <article class="mini-card reveal delay-3"><span>MINDSET</span><i class="fa-solid fa-gears"></i><h3>End-to-End</h3><p>Data preparation, modelling, evaluation, deployment and continuous improvement.</p></article>
         </div>
       </div>
-      <h3>Email</h3>
-      <p>amjadzakwan5@gmail.com</p>
-      <span class="contact-label">Response within 24h</span>
-    </div>
+    </section>
 
-    <div class="contact-card">
-      <div class="contact-icon-wrapper">
-        <div class="contact-icon-circle">
-          <i class="fa-brands fa-linkedin-in"></i>
+    <section class="section experience" id="experience">
+      <div class="section-heading reveal">
+        <p class="eyebrow">02 — EXPERIENCE</p>
+        <h2>Building at the intersection of <span class="gradient-text">AI and automation.</span></h2>
+      </div>
+
+      <div class="experience-card glass-card reveal tilt-card">
+        <div class="experience-logo"><img src="betamek.jpg" alt="Betamek Electronics logo" /></div>
+        <div class="experience-main">
+          <div class="experience-meta"><span>MAR 2026 — AUG 2026</span><span>SELANGOR, MALAYSIA</span></div>
+          <h3>Automation Intern</h3>
+          <p class="company">Betamek Electronics (M) Sdn. Bhd.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i><span>Developed a PCB NG Detection System using YOLOv8, Raspberry Pi 4 and a USB camera, achieving detection confidence above 90%.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Supported training, testing and tuning of automated greasing and soldering machines with internal and vendor engineers.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Investigated machine issues, identified root causes and helped improve automation workflows in a manufacturing environment.</span></li>
+          </ul>
+        </div>
+        <div class="experience-number">01</div>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="section-heading reveal">
+        <p class="eyebrow">03 — SELECTED PROJECTS</p>
+        <h2>Projects engineered to <span class="gradient-text">solve real problems.</span></h2>
+      </div>
+
+      <div class="project-filters reveal" role="group" aria-label="Project filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">AI / ML</button>
+        <button class="filter-btn" data-filter="vision">Computer Vision</button>
+        <button class="filter-btn" data-filter="analytics">Analytics</button>
+        <button class="filter-btn" data-filter="nlp">NLP</button>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card reveal" data-category="ai vision">
+          <div class="project-image"><img src="pcbDetection.jpg" alt="PCB NG Detection System" /><div class="project-overlay"><a href="https://github.com/amjadzkwn/PCB-NG-Detection-System.git" target="_blank" rel="noopener" aria-label="View PCB project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="project-content"><div class="project-top"><span>COMPUTER VISION</span><span>01</span></div><h3>PCB NG Detection System</h3><p>Edge-based quality inspection system for detecting non-good PCB components in real time.</p><div class="tags"><span>YOLOv8</span><span>Python</span><span>Raspberry Pi</span></div></div>
+        </article>
+
+        <article class="project-card reveal delay-1" data-category="ai nlp">
+          <div class="project-image"><img src="AAPL_compact_dashboard.png" alt="Stock Market Prediction dashboard" /><div class="project-overlay"><a href="https://github.com/amjadzkwn/Stock-Market-Prediction-Using-Machine-Learning-and-Natural-Language-Processing.git" target="_blank" rel="noopener" aria-label="View stock project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="project-content"><div class="project-top"><span>FINANCIAL AI</span><span>02</span></div><h3>Stock Market Prediction</h3><p>Hybrid LSTM and FinBERT pipeline combining price history with financial-news sentiment.</p><div class="tags"><span>LSTM</span><span>FinBERT</span><span>Time Series</span></div></div>
+        </article>
+
+        <article class="project-card reveal delay-2" data-category="ai analytics">
+          <div class="project-image"><img src="SmartOps.png" alt="SmartOps predictive maintenance" /><div class="project-overlay"><a href="https://github.com/amjadzkwn/SmartOps-ML-Driven-Failure-Forecasting.git" target="_blank" rel="noopener" aria-label="View SmartOps project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="project-content"><div class="project-top"><span>PREDICTIVE MAINTENANCE</span><span>03</span></div><h3>SmartOps Failure Forecast</h3><p>Machine-failure forecasting application that transforms sensor patterns into maintenance alerts.</p><div class="tags"><span>XGBoost</span><span>Streamlit</span><span>SHAP</span></div></div>
+        </article>
+
+        <article class="project-card reveal" data-category="ai">
+          <div class="project-image"><img src="UI_example.png" alt="Smart recommendation system" /><div class="project-overlay"><a href="https://github.com/amjadzkwn/Smart-Product-Recommendation-System-Using-User-Behaviour-Data.git" target="_blank" rel="noopener" aria-label="View recommendation project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="project-content"><div class="project-top"><span>RECOMMENDER SYSTEM</span><span>04</span></div><h3>Smart Product Recommendation</h3><p>Personalised recommendation engine using user behaviour and matrix factorisation.</p><div class="tags"><span>SVD</span><span>Python</span><span>Collaborative Filtering</span></div></div>
+        </article>
+
+        <article class="project-card reveal delay-1" data-category="nlp analytics">
+          <div class="project-image"><img src="Streamlit_Dashboard_Pt2.png" alt="Copilot Adoption Intelligence" /><div class="project-overlay"><a href="https://github.com/amjadzkwn/Copilot-Adoption-Intelligence-System.git" target="_blank" rel="noopener" aria-label="View Copilot project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="project-content"><div class="project-top"><span>NLP ANALYTICS</span><span>05</span></div><h3>Copilot Adoption Intelligence</h3><p>AI-readiness and employee-sentiment analytics for understanding technology adoption.</p><div class="tags"><span>NLP</span><span>Sentiment</span><span>Streamlit</span></div></div>
+        </article>
+
+        <article class="project-card reveal delay-2" data-category="ai analytics">
+          <div class="project-image"><img src="SmartRetention.png" alt="SmartRetention churn prediction" /><div class="project-overlay"><a href="https://github.com/amjadzkwn/SmartRetention-Engine.git" target="_blank" rel="noopener" aria-label="View churn project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="project-content"><div class="project-top"><span>CHURN INTELLIGENCE</span><span>06</span></div><h3>SmartRetention Engine</h3><p>Customer churn classification with imbalance handling and actionable retention insights.</p><div class="tags"><span>Random Forest</span><span>SMOTE</span><span>Classification</span></div></div>
+        </article>
+
+        <article class="project-card reveal" data-category="ai nlp">
+          <div class="project-image"><img src="FinancialNewsVerification.png" alt="Financial news verification dApp" /><div class="project-overlay"><a href="https://ai-powered-financial-news-verification-dapp.streamlit.app/" target="_blank" rel="noopener" aria-label="Open financial news app"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="project-content"><div class="project-top"><span>AI + WEB3</span><span>07</span></div><h3>Financial News Verification dApp</h3><p>AI-powered application for assessing financial-news authenticity and credibility.</p><div class="tags"><span>NLP</span><span>Web3</span><span>Streamlit</span></div></div>
+        </article>
+
+        <article class="project-card reveal delay-1" data-category="analytics">
+          <div class="project-image"><img src="Superstore Analytics Dashboard.png" alt="Superstore Power BI Dashboard" /><div class="project-overlay"><a href="https://github.com/amjadzkwn/Superstore-Analytics-Dashboard.git" target="_blank" rel="noopener" aria-label="View dashboard project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <div class="project-content"><div class="project-top"><span>BUSINESS INTELLIGENCE</span><span>08</span></div><h3>Superstore Analytics Dashboard</h3><p>Interactive Power BI solution for regional, customer and sales-performance analysis.</p><div class="tags"><span>Power BI</span><span>SQL</span><span>DAX</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section skills" id="skills">
+      <div class="section-heading reveal">
+        <p class="eyebrow">04 — CAPABILITIES</p>
+        <h2>Tools I use to move from <span class="muted">idea to deployment.</span></h2>
+      </div>
+
+      <div class="skills-layout">
+        <div class="skills-radar glass-card reveal">
+          <div class="radar-core"><i class="fa-solid fa-brain"></i><span>AI</span></div>
+          <div class="orbit orbit-a"><span>ML</span><span>CV</span><span>NLP</span><span>BI</span></div>
+          <div class="orbit orbit-b"></div>
+        </div>
+
+        <div class="skill-groups">
+          <article class="skill-group reveal"><div class="skill-icon"><i class="fa-solid fa-code"></i></div><div><h3>Languages & Data</h3><div class="tags"><span>Python</span><span>SQL</span><span>HTML</span><span>CSS</span><span>Git</span></div></div></article>
+          <article class="skill-group reveal delay-1"><div class="skill-icon"><i class="fa-solid fa-robot"></i></div><div><h3>Machine Learning & AI</h3><div class="tags"><span>Scikit-learn</span><span>TensorFlow</span><span>PyTorch</span><span>XGBoost</span><span>YOLOv8</span></div></div></article>
+          <article class="skill-group reveal delay-2"><div class="skill-icon"><i class="fa-solid fa-chart-simple"></i></div><div><h3>Analytics & Visualisation</h3><div class="tags"><span>Power BI</span><span>DAX</span><span>Pandas</span><span>Plotly</span><span>Matplotlib</span></div></div></article>
+          <article class="skill-group reveal delay-3"><div class="skill-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div><div><h3>Apps & Automation</h3><div class="tags"><span>Streamlit</span><span>Flask</span><span>Power Apps</span><span>Power Automate</span><span>SharePoint</span></div></div></article>
         </div>
       </div>
-      <h3>LinkedIn</h3>
-      <p>Connect professionally</p>
-      <a href="https://www.linkedin.com/in/amjad-zakwan" target="_blank" class="contact-social-btn">Visit Profile →</a>
-    </div>
+    </section>
 
-    <div class="contact-card">
-      <div class="contact-icon-wrapper">
-        <div class="contact-icon-circle">
-          <i class="fa-brands fa-github"></i>
+    <section class="section education" id="education">
+      <div class="section-heading reveal">
+        <p class="eyebrow">05 — EDUCATION</p>
+        <h2>A foundation in <span class="gradient-text">data, science and problem-solving.</span></h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal"><div class="timeline-year">2022 — PRESENT</div><div class="timeline-dot"></div><div class="timeline-card glass-card"><img src="ums.jpg" alt="UMS logo" /><div><h3>Bachelor of Computer Science with Honours (Data Science)</h3><p>Universiti Malaysia Sabah</p></div></div></article>
+        <article class="timeline-item reveal delay-1"><div class="timeline-year">2021 — 2022</div><div class="timeline-dot"></div><div class="timeline-card glass-card"><img src="kmp.jpg" alt="Perlis Matriculation College logo" /><div><h3>Matriculation Programme — Science Stream</h3><p>Perlis Matriculation College</p></div></div></article>
+        <article class="timeline-item reveal delay-2"><div class="timeline-year">2016 — 2020</div><div class="timeline-dot"></div><div class="timeline-card glass-card"><img src="saser.jpg" alt="SASER logo" /><div><h3>Sijil Pelajaran Malaysia</h3><p>Tuanku Munawir Science School</p></div></div></article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="contact-shell reveal">
+        <div class="contact-copy">
+          <p class="eyebrow">06 — LET’S CONNECT</p>
+          <h2>Have a challenge that needs <span class="gradient-text">data or AI?</span></h2>
+          <p>I’m open to graduate opportunities, collaborations and projects involving AI engineering, machine learning, data science, analytics and automation.</p>
+          <a href="mailto:amjadzakwan5@gmail.com" class="contact-email">amjadzakwan5@gmail.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+        <div class="contact-actions">
+          <a href="tel:+60173155901"><i class="fa-solid fa-phone"></i><span><small>CALL</small>+60 17-315 5901</span><i class="fa-solid fa-arrow-right"></i></a>
+          <a href="https://www.linkedin.com/in/amjad-zakwan" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i><span><small>CONNECT</small>LinkedIn Profile</span><i class="fa-solid fa-arrow-right"></i></a>
+          <a href="https://github.com/amjadzkwn" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i><span><small>EXPLORE</small>GitHub Repositories</span><i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
-      <h3>GitHub</h3>
-      <p>Explore my projects</p>
-      <a href="https://github.com/amjadzkwn" target="_blank" class="contact-social-btn">View Repos →</a>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
 
-<footer>
-  <p>© 2026 Amjad Zakwan | All Rights Reserved</p>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-// Three.js Background
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-renderer.domElement.style.position = "fixed";
-renderer.domElement.style.top = "0";
-renderer.domElement.style.left = "0";
-renderer.domElement.style.zIndex = "-1";
-
-const geometry = new THREE.BufferGeometry();
-const vertices = [];
-for (let i = 0; i < 5000; i++) {
-    vertices.push(THREE.MathUtils.randFloatSpread(2000), THREE.MathUtils.randFloatSpread(2000), THREE.MathUtils.randFloatSpread(2000));
-}
-geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-const material = new THREE.PointsMaterial({ color: 0x4f8cff });
-const points = new THREE.Points(geometry, material);
-scene.add(points);
-camera.position.z = 500;
-
-function animate() {
-    requestAnimationFrame(animate);
-    points.rotation.x += 0.0005;
-    points.rotation.y += 0.001;
-    renderer.render(scene, camera);
-}
-animate();
-
-// ========== SLIDER CO-CURRICULAR ==========
-let currentIndex = 0;
-const cards = document.querySelectorAll('.co-card');
-
-function updateSlider() {
-    cards.forEach((card, i) => {
-        card.classList.remove('active', 'prev', 'next');
-        if (i === currentIndex) {
-            card.classList.add('active');
-        } else if (i === (currentIndex - 1 + cards.length) % cards.length) {
-            card.classList.add('prev');
-        } else if (i === (currentIndex + 1) % cards.length) {
-            card.classList.add('next');
-        }
-    });
-}
-
-function moveSlider(direction) {
-    currentIndex = (currentIndex + direction + cards.length) % cards.length;
-    updateSlider();
-}
-
-// ========== INTERSECTION OBSERVER UNTUK ANIMASI ==========
-const animElements = document.querySelectorAll("section, .exp-card-wrapper, .timeline-item, .skill-category, .project-card, .ref-card");
-
-const scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
-}, { threshold: 0.1 });
-
-animElements.forEach(el => {
-    el.classList.add("hidden");
-    scrollObserver.observe(el);
-});
-
-// ========== ACTIVE NAVIGATION LINK ON SCROLL ==========
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
-
-function updateActiveLink() {
-    let current = "";
-    const scrollPosition = window.scrollY + 150; // Offset untuk header fixed
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        const href = link.getAttribute("href").substring(1);
-        if (href === current) {
-            link.classList.add("active");
-        }
-    });
-}
-
-// Event listeners untuk scroll
-window.addEventListener("scroll", updateActiveLink);
-window.addEventListener("load", updateActiveLink);
-
-// Mulakan slider selepas DOM siap
-document.addEventListener('DOMContentLoaded', () => {
-    updateSlider();
-});
-</script>
-
+  <footer>
+    <div><span class="logo-mark small">AZ</span><p>Designed & built by Amjad Zakwan.</p></div>
+    <p>© <span id="year"></span> All rights reserved.</p>
+    <a href="#home">Back to top <i class="fa-solid fa-arrow-up"></i></a>
+  </footer>
 </body>
 </html>
